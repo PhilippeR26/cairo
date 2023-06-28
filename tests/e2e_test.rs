@@ -61,6 +61,7 @@ cairo_lang_test_utils::test_file_test_with_runner!(
         u512: "u512",
         u64: "u64",
         u8: "u8",
+        u248: "u248",
     },
     SmallE2ETestRunner
 );

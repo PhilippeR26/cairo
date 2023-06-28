@@ -362,6 +362,12 @@ pub fn core_libfunc_cost(
             }
             Felt252DictEntryConcreteLibfunc::Finalize(_) => vec![ConstCost::steps(1).into()],
         },
+        CoreConcreteLibfunc::U248(libfunc) => match libfunc {
+            cairo_lang_sierra::extensions::u248::U248ConcreteLibfunc::TryFromFelt252(_) => vec![
+                (ConstCost { steps: 7, holes: 0, range_checks: 3 }).into(),
+                (ConstCost { steps: 9, holes: 0, range_checks: 3 }).into(),
+            ],
+        },
     }
 }
 

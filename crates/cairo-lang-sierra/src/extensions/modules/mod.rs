@@ -38,6 +38,7 @@ pub mod squashed_felt252_dict;
 pub mod starknet;
 pub mod structure;
 pub mod try_from_felt252;
+pub mod u248;
 pub mod unconditional_jump;
 pub mod uninitialized;
 pub mod utils;

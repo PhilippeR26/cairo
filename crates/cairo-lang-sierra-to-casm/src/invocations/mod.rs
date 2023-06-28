@@ -50,6 +50,7 @@ mod pedersen;
 mod poseidon;
 mod starknet;
 mod structure;
+mod u248;
 
 #[cfg(test)]
 mod test_utils;
@@ -619,6 +620,7 @@ pub fn compile_invocation(
         CoreConcreteLibfunc::Felt252DictEntry(libfunc) => {
             felt252_dict::build_entry(libfunc, builder)
         }
+        CoreConcreteLibfunc::U248(libfunc) => u248::build(libfunc, builder),
     }
 }
 

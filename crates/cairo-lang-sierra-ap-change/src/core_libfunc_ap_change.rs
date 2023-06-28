@@ -275,6 +275,11 @@ pub fn core_libfunc_ap_change<InfoProvider: InvocationApChangeInfoProvider>(
             Felt252DictEntryConcreteLibfunc::Get(_) => vec![ApChange::Known(0)],
             Felt252DictEntryConcreteLibfunc::Finalize(_) => vec![ApChange::Known(0)],
         },
+        CoreConcreteLibfunc::U248(libfunc) => match libfunc {
+            cairo_lang_sierra::extensions::u248::U248ConcreteLibfunc::TryFromFelt252(_) => {
+                vec![ApChange::Known(5), ApChange::Known(6)]
+            }
+        },
     }
 }
 

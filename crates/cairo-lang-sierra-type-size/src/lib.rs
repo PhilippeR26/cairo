@@ -31,6 +31,8 @@ pub fn get_type_size_map(
             | CoreTypeConcrete::Sint32(_)
             | CoreTypeConcrete::Sint64(_)
             | CoreTypeConcrete::Sint128(_)
+            // TODO(yg): rename + move?
+            | CoreTypeConcrete::U248(_)
             | CoreTypeConcrete::RangeCheck(_)
             | CoreTypeConcrete::Box(_)
             | CoreTypeConcrete::StarkNet(StarkNetTypeConcrete::System(_))

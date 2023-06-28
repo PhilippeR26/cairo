@@ -316,6 +316,10 @@ mod internal;
 mod zeroable;
 use zeroable::{Zeroable, NonZero};
 
+// u248.
+mod unsigned248;
+use unsigned248::{u248, u248_try_from_felt252};
+
 #[cfg(test)]
 mod test;
 

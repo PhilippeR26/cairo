@@ -42,6 +42,7 @@ use super::span::SpanType;
 use super::squashed_felt252_dict::SquashedFelt252DictType;
 use super::starknet::{StarkNetLibfunc, StarkNetType};
 use super::structure::{StructLibfunc, StructType};
+use super::u248::{U248Libfunc, U248Type};
 use super::uninitialized::UninitializedType;
 use crate::{define_libfunc_hierarchy, define_type_hierarchy};
 
@@ -82,6 +83,8 @@ define_type_hierarchy! {
         StarkNet(StarkNetType),
         SegmentArena(SegmentArenaType),
         Snapshot(SnapshotType),
+        // TODO(yg): rename + move?
+        U248(U248Type),
     }, CoreTypeConcrete
 }
 
@@ -124,5 +127,7 @@ define_libfunc_hierarchy! {
         StarkNet(StarkNetLibfunc),
         Debug(DebugLibfunc),
         SnapshotTake(SnapshotTakeLibfunc),
+        // TODO(yg): rename + move?
+        U248(U248Libfunc),
     }, CoreConcreteLibfunc
 }
