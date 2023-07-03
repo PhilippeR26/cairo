@@ -156,7 +156,7 @@ impl<'a> Analyzer<'_> for DestructAdder<'a> {
         _target_block_id: BlockId,
         remapping: &VarRemapping,
     ) {
-        info.apply_remapping(self, remapping.iter().map(|(dst, src)| (dst, (src, ()))));
+        info.apply_remapping(self, remapping.iter().map(|(dst, src)| (dst, (&src.var_id, ()))));
     }
 
     fn merge_match(
@@ -185,10 +185,10 @@ impl<'a> Analyzer<'_> for DestructAdder<'a> {
     fn info_from_return(
         &mut self,
         _statement_location: StatementLocation,
-        vars: &[VariableId],
+        vars: &[VarUsage],
     ) -> Self::Info {
         let mut info = DestructAdderDemand::default();
-        info.variables_used(self, vars.iter().map(|var_id| (var_id, ())));
+        info.variables_used(self, vars.iter().map(|VarUsage { var_id, .. }| (var_id, ())));
         info
     }
 
